@@ -62,6 +62,12 @@ public class UDTServerSocket {
 	public UDTServerSocket(int port)throws SocketException,UnknownHostException{
 		this(InetAddress.getLocalHost(),port);
 	}
+
+	//starts a server with the given UDPEndPoint
+	public UDTServerSocket(UDPEndPoint endpoint)throws SocketException,UnknownHostException{
+		this.endpoint=endpoint;
+		logger.info("Created server endpoint on port "+endpoint.getLocalPort());
+	}
 	
 	/**
 	 * listens and blocks until a new client connects and returns a valid {@link UDTSocket}
